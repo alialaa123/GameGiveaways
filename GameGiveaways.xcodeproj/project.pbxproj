@@ -27,6 +27,9 @@
 		F14970492D5C626300A110D5 /* GameGiveaways.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameGiveaways.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14970592D5C626600A110D5 /* GameGiveawaysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameGiveawaysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14970632D5C626600A110D5 /* GameGiveawaysUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameGiveawaysUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F19AEF9E2D5C639300F26C97 /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkLayer; sourceTree = "<group>"; };
+		F19AEF9F2D5C63AE00F26C97 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Data; sourceTree = "<group>"; };
+		F19AEFA02D5C63BE00F26C97 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +78,9 @@
 		F14970402D5C626300A110D5 = {
 			isa = PBXGroup;
 			children = (
+				F19AEFA02D5C63BE00F26C97 /* Domain */,
+				F19AEF9F2D5C63AE00F26C97 /* Data */,
+				F19AEF9E2D5C639300F26C97 /* NetworkLayer */,
 				F149704B2D5C626300A110D5 /* GameGiveaways */,
 				F149705C2D5C626600A110D5 /* GameGiveawaysTests */,
 				F14970662D5C626600A110D5 /* GameGiveawaysUITests */,
