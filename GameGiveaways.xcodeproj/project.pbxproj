@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F16205892D5C8DD700D3C942 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = F16205882D5C8DD700D3C942 /* Data */; };
+		F162058B2D5C8DD700D3C942 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = F162058A2D5C8DD700D3C942 /* Domain */; };
+		F162058D2D5C8DD700D3C942 /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F162058C2D5C8DD700D3C942 /* NetworkLayer */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F149705A2D5C626600A110D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -55,6 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F162058D2D5C8DD700D3C942 /* NetworkLayer in Frameworks */,
+				F162058B2D5C8DD700D3C942 /* Domain in Frameworks */,
+				F16205892D5C8DD700D3C942 /* Data in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +93,7 @@
 				F149704B2D5C626300A110D5 /* GameGiveaways */,
 				F149705C2D5C626600A110D5 /* GameGiveawaysTests */,
 				F14970662D5C626600A110D5 /* GameGiveawaysUITests */,
+				F16205872D5C8DD700D3C942 /* Frameworks */,
 				F149704A2D5C626300A110D5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +106,13 @@
 				F14970632D5C626600A110D5 /* GameGiveawaysUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F16205872D5C8DD700D3C942 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +135,9 @@
 			);
 			name = GameGiveaways;
 			packageProductDependencies = (
+				F16205882D5C8DD700D3C942 /* Data */,
+				F162058A2D5C8DD700D3C942 /* Domain */,
+				F162058C2D5C8DD700D3C942 /* NetworkLayer */,
 			);
 			productName = GameGiveaways;
 			productReference = F14970492D5C626300A110D5 /* GameGiveaways.app */;
@@ -408,11 +428,11 @@
 				DEVELOPMENT_TEAM = HQS8P8TFBD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -420,9 +440,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tool.GameGiveaways;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -437,11 +461,11 @@
 				DEVELOPMENT_TEAM = HQS8P8TFBD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,9 +473,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tool.GameGiveaways;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -578,6 +606,21 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F16205882D5C8DD700D3C942 /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
+		};
+		F162058A2D5C8DD700D3C942 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		F162058C2D5C8DD700D3C942 /* NetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkLayer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F14970412D5C626300A110D5 /* Project object */;
 }

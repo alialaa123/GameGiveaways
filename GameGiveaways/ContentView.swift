@@ -6,19 +6,19 @@
 //
 
 import SwiftUI
+import Domain
+import Data
+import NetworkLayer
 
 struct ContentView: View {
+    @StateObject var viewModel: ListOfGiveawaysViewModel
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            List(viewModel.giveaways, id: \.id) {
+                Text("\($0.title)")
+            }
         }
         .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }
