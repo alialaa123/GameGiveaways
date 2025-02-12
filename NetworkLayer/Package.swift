@@ -13,8 +13,8 @@ let package = Package(
             targets: ["NetworkLayer"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Moya/Moya.git", from: "15.0.3"),
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.10.2")
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.6.0"),
+        .package(url: "https://github.com/Moya/Moya.git", from: "15.0.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,8 +22,8 @@ let package = Package(
         .target(
             name: "NetworkLayer",
             dependencies: [
-                .product(name: "Moya", package: "Moya"),
-                .product(name: "Alamofire", package: "Alamofire")
+                .product(name: "Alamofire", package: "Alamofire"),
+                .product(name: "Moya", package: "Moya")
             ]
         ),
         .testTarget(
