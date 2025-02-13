@@ -14,7 +14,7 @@ import NetworkLayer
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    
+    var mainCoordinator: MainAppCoordinator?
     
     func application(
         _ application: UIApplication,
@@ -22,18 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-        let navigationController = UINavigationController()
-        let viewModel = ListOfGiveawaysViewModel(
-            listOfGiveawaysUseCase: DefaultListOfGiveawaysUseCase(
-                repository: DefaultGetListOfGiveawayRemote(
-                    networkClient: NetworkManager(baseURL: URL(string: "https://www.gamerpower.com/api")!)
-                )
-            )
-        )
-        let view = UIHostingController(rootView: ContentView(viewModel: viewModel))
-        navigationController.pushViewController(view, animated: false)
+        let appMainDependency = DefaultMainAppDependencyContainer()
         
-        window.rootViewController = navigationController
+        mainCoordinator = MainAppCoordinator(window: window, dependencyContainer: appMainDependency)
+        
+        mainCoordinator?.start()
         
         window.makeKeyAndVisible()
         
