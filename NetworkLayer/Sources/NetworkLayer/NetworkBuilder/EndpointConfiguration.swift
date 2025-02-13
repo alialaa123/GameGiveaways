@@ -9,13 +9,14 @@ import Foundation
 @preconcurrency import Moya
 
 public struct EndpointConfiguration<Response: Decodable & Sendable>: APITarget, Sendable {
+    
     // MARK: - Properties
     public typealias Response = Response
     
     public var baseURL: URL
     public var path: String = ""
     public var method: Moya.Method = .get
-    public var task: Task? = nil
+    public var task: Task = .requestPlain
     public var headers: [String: String]? = [:]
     
     // MARK: - Life cycle
@@ -44,15 +45,30 @@ public struct EndpointConfiguration<Response: Decodable & Sendable>: APITarget, 
         return config
     }
     
-    public func task(_ task: Task) -> EndpointConfiguration {
-        var config = self
-        config.task = task
-        return config
-    }
-    
     public func headers(_ headers: [String : String]?) -> EndpointConfiguration {
         var config = self
         config.headers = headers
         return config
+    }
+    
+    public func queryParameters(_ parameters: [String: Any]) -> EndpointConfiguration {
+        var config = self
+        let validParameters = validateQueryParameters(for: parameters)
+        
+        config.task = .requestParameters(parameters: validParameters, encoding: URLEncoding.queryString)
+        return config
+    }
+    
+    private func validateQueryParameters(for parameters: [String: Any]) -> [String : String] {
+        parameters.compactMapValues { value in
+            if let stringValue = value as? String, !stringValue.isEmpty {
+                return stringValue
+            } else if let numberValue = value as? NSNumber {
+                return numberValue.stringValue
+            } else if let boolValue = value as? Bool {
+                return boolValue ? "true" : "false"
+            }
+            return nil
+        }
     }
 }

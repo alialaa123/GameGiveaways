@@ -24,12 +24,8 @@ public final class DefaultGetListOfGiveawayRemote: ListOfGiveawayRepository {
         let requestBuilder = EndpointConfiguration<[GiveawayDTO]>(baseURL: networkClient.baseURL)
             .path("/giveaways")
             .method(.get)
-            .task(
-                .requestParameters(
-                    parameters: ["platform": (platform ?? "")],
-                    encoding: URLEncoding.default
-                )
-            )
+            .queryParameters(["platform": platform ?? ""])
+        
         let response = try await networkClient.request(requestBuilder)
         return response.map { $0.toDomain() }
     }

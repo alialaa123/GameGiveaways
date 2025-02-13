@@ -13,17 +13,13 @@ public protocol APITarget: TargetType, Sendable {
     
     var path: String { get }
     var method: Moya.Method { get }
-    var task: Task { get }
+    var task: Task { get set }
     var headers: [String: String]? { get }
 }
 
 public extension APITarget {
     var methods: Moya.Method {
         return .get
-    }
-    
-    var task: Task {
-        return .requestPlain
     }
     
     var headers: [String: String]? {
