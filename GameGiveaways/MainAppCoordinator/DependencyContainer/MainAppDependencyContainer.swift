@@ -15,4 +15,6 @@ protocol MainAppDependencyContainer: Sendable {
         with giveaway: Giveaway,
         action: GiveawayDetailsAction
     ) -> UIHostingController<GiveawayDetailsView>
+    
+    func makeMoreView(with categories: [Giveaway]) -> UIHostingController<MoreView>
 }

@@ -9,10 +9,6 @@ import Foundation
 import Domain
 import Combine
 
-protocol GiveawayDetailsAction: AnyObject {
-    func dismiss()
-}
-
 final class GiveawayDetailsViewModel: ObservableObject {
     // MARK: - Properties
     @Published var giveaway: Giveaway

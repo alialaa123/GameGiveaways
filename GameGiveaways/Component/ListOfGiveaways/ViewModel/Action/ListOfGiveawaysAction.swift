@@ -10,4 +10,5 @@ import Domain
 
 protocol ListOfGiveawaysAction: AnyObject {
     func navigateToGiveawayDetailsView(with giveaway: Giveaway)
+    func navigateToMoreView(with categories: [Giveaway])
 }

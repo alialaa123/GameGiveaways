@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StackInformation: Sendable, Equatable {
+struct StackInformation: Sendable, Equatable, Identifiable {
     let id = UUID()
     let iconImage: String
     let text: String

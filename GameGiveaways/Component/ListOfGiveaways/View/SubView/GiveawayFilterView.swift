@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct GiveawayFilterView: View {
+    // MARK: - Properties
     @Binding var selectedPlatform: PlatformCategories
     
+    // MARK: - View
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
@@ -17,26 +19,24 @@ struct GiveawayFilterView: View {
                     Button {
                         selectedPlatform = platformCategory
                     } label: {
-                        Text(platformCategory.rawValue)
-                            .font(selectedPlatform == platformCategory
-                                  ? .system(size: 12, weight: .bold, design: .monospaced)
-                                  : .system(size: 12, weight: .light, design: .monospaced))
-                            .foregroundColor(.black)
-                            .padding(.vertical, 4)
-                            .padding(.horizontal, 8)
+                        if platformCategory == .more {
+                            Text(platformCategory.rawValue.capitalized)
+                                .underline()
+                                .font(.system(size: 12, weight: .regular, design: .monospaced))
+                        } else {
+                            Text(platformCategory.rawValue)
+                                .font(selectedPlatform == platformCategory
+                                      ? .system(size: 12, weight: .bold, design: .monospaced)
+                                      : .system(size: 12, weight: .light, design: .monospaced))
+                                .foregroundColor(.black)
+                                .padding(.vertical, 4)
+                                .padding(.horizontal, 8)
+                            
+                        }
                     }
-                }
-                
-                Button {
-                    // TODO: - Action for MORE
-                } label: {
-                    Text("More")
-                        .underline()
-                        .font(.system(size: 12, weight: .regular, design: .monospaced))
                 }
             }
         }
-        
     }
 }
 

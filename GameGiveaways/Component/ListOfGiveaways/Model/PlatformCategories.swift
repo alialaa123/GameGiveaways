@@ -13,6 +13,7 @@ enum PlatformCategories: String, CaseIterable {
     case steam
     case ios
     case android
+    case more
     
     // MARK: - For URL
     var RequestPlatformForURL: String? {

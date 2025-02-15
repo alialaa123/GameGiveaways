@@ -71,6 +71,7 @@ final class ListOfGiveawaysViewModel: ObservableObject {
         }
     }
     
+    /// Refresh Data for changing filtered category
     private func refreshData() {
         self.shouldShowError = false
         self.errorMessage = nil
@@ -78,8 +79,15 @@ final class ListOfGiveawaysViewModel: ObservableObject {
         self.getListOfGiveaways()
     }
     
+    /// Navigate to Details view
     private func navigateToDetail(for giveaway: Giveaway) {
         listOfGiveawaysAction?.navigateToGiveawayDetailsView(with: giveaway)
+    }
+    
+    /// Navigate to More view
+    private func navigateToMoveView() {
+        guard let categories = giveaways?.prefix(2) else { return }
+        listOfGiveawaysAction?.navigateToMoreView(with: Array(categories))
     }
 }
 
@@ -89,9 +97,11 @@ extension ListOfGiveawaysViewModel {
         $platformCategorySelected
             .dropFirst()
             .receive(on: DispatchQueue.main)
-            .removeDuplicates()
             .sink { [weak self] selectedCategory in
-                guard let self else { return }
+                guard let self, selectedCategory != .more else {
+                    self?.navigateToMoveView()
+                    return
+                }
                 self.refreshData()
             }
             .store(in: &cancellable)

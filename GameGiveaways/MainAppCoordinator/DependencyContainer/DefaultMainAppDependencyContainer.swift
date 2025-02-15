@@ -61,3 +61,12 @@ extension DefaultMainAppDependencyContainer {
         GiveawayDetailsViewModel(giveaway: giveaway, action: action)
     }
 }
+
+
+// MARK: - More View
+extension DefaultMainAppDependencyContainer {
+    func makeMoreView(with categories: [Giveaway]) -> UIHostingController<MoreView> {
+        let view = MoreView(categories: categories)
+        return UIHostingController(rootView: view)
+    }
+}

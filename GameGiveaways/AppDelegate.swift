@@ -6,10 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
-import Domain
-import Data
-import NetworkLayer
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

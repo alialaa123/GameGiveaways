@@ -43,6 +43,13 @@ extension MainAppCoordinator: ListOfGiveawaysAction {
         
         navigationController.pushViewController(view, animated: true)
     }
+    
+    func navigateToMoreView(with categories: [Giveaway]) {
+        let view = dependencyContainer.makeMoreView(with: categories)
+        navigationController.setNavigationBarHidden(false, animated: true)
+        
+        navigationController.pushViewController(view, animated: true)
+    }
 }
 
 // MARK: - Giveaways details Actions

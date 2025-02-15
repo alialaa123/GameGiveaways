@@ -6,9 +6,6 @@
 //
 
 import SwiftUI
-import Domain
-import Data
-import NetworkLayer
 
 struct MainListOfGiveawaysView: View {
     // MARK: - Properties
@@ -37,7 +34,7 @@ struct MainListOfGiveawaysView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVStack(spacing: 16) {
                         ForEach(Array(giveaways.enumerated()), id: \.offset) { (_, giveaway) in
-                            GiveawayCardView(
+                            CustomAnimatedGiveawayCard(
                                 giveaway: giveaway,
                                 giveawaySelected: $viewModel.giveawaySelected,
                                 coordinateSpace: coordinateSpace
@@ -48,8 +45,8 @@ struct MainListOfGiveawaysView: View {
                 }
                 .coordinateSpace(name: coordinateSpace)
             }
-        }
-        
+        }        
+        .navigationBarHidden(true)
         .ignoresSafeArea()
         .padding()
     }

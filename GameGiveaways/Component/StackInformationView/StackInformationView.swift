@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Domain
 
 struct StackInformationView: View {
     // MARK: - Properties
@@ -24,7 +23,7 @@ struct StackInformationView: View {
     // MARK: - Method Adding stack information
     @ViewBuilder
     func addStackInformation(with informations: [StackInformation]) -> some View {
-        ForEach(Array(informations.enumerated()), id: \.element.id)  { _, information in
+        ForEach(informations) { information in
             if information != informations.first {
                 Divider()
             }

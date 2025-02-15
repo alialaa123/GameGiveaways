@@ -44,7 +44,7 @@ struct GiveawayDetailsView: View {
                 ]
             )
             
-            /// Scroll view for information
+            /// Scroll view information
             ScrollDetailInformationView(information: viewModel.giveaway.detailInformation)
         }
         .ignoresSafeArea()

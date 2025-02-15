@@ -9,36 +9,32 @@ import SwiftUI
 import Domain
 
 struct ScrollDetailInformationView: View {
+    // MARK: - Properties
     let information: GiveawayDetailInformation
     
+    // MARK: - View
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 26) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Platform")
-                        .font(.system(size: 16, weight: .bold, design: .rounded))
-                    
-                    Text(information.platforms)
-                        .font(.system(size: 14, weight: .regular, design: .rounded))
-                }
+                createStackOfInformation(with: "Platform", and: information.platforms)
                 
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Giveaway End Date")
-                        .font(.system(size: 16, weight: .bold, design: .rounded))
-                    
-                    Text(information.endDate)
-                        .font(.system(size: 14, weight: .regular, design: .rounded))
-                }
+                createStackOfInformation(with: "Giveaway End Date", and: information.endDate)
                 
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Description")
-                        .font(.system(size: 16, weight: .bold, design: .rounded))
-                    
-                    Text(information.description)
-                        .font(.system(size: 14, weight: .regular, design: .rounded))
-                }
+                createStackOfInformation(with: "Description", and: information.description)
             }
         }
         .padding()
+    }
+    
+    // MARK: - Method
+    /// Creating stack of information
+    func createStackOfInformation(with title: String, and value: String) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(title)
+                .font(.system(size: 16, weight: .bold, design: .rounded))
+            
+            Text(value)
+                .font(.system(size: 14, weight: .regular, design: .rounded))
+        }
     }
 }
