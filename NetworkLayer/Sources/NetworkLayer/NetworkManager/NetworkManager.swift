@@ -13,6 +13,7 @@ public actor NetworkManager: NetworkProvider {
     private let provider: MoyaProvider<MultiTarget>
     public let baseURL: URL
     
+    // MARK: - Life cycle
     public init(
         provider: MoyaProvider<MultiTarget> = MoyaProvider<MultiTarget>(),
         baseURL: URL
@@ -31,10 +32,13 @@ public actor NetworkManager: NetworkProvider {
                         let data = try JSONDecoder().decode(Request.Response.self, from: response.data)
                         continuation.resume(returning: data)
                     } catch {
-                        continuation.resume(throwing: error)
+                        continuation.resume(throwing: MoyaError.objectMapping(error, response))
                     }
                 case .failure(let error):
-                    continuation.resume(throwing: error)
+                    guard let errorResponse = error.response else {
+                        return continuation.resume(throwing: MoyaError.underlying(error, nil))
+                    }
+                    continuation.resume(throwing: MoyaError.statusCode(errorResponse))
                 }
             }
         }
