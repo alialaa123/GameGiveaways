@@ -59,7 +59,6 @@ final class ListOfGiveawaysViewModel: ObservableObject {
                     with: platformCategorySelected.RequestPlatformForURL
                 )
                 await MainActor.run {
-                    self.giveaways = nil
                     self.giveaways = giveaways
                 }
             } catch {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Giveaway: Sendable, Identifiable {
+public struct Giveaway: Sendable, Identifiable, Equatable {
     // MARK: - Properties
     public let id: Int
     public let title: String
